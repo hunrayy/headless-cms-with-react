@@ -28,8 +28,8 @@ const Blog = () => {
   return (
     <div>
       <Helmet>
-        
-        
+        <title>{`${posts[0]?.fields.title} - My Blog`}</title>
+        <meta name="description" content={posts[0].fields.content} />
       </Helmet>
       <div className="blog-container">
       <header className="blog-header">
