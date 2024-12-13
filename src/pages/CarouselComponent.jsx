@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "./carousel.css"; // Custom styles
+import "./carouselComponent.css"; // Custom styles
 
-const carousel = () => {
+const CarouselComponent = () => {
   const slides = [
     {
       id: 1,
@@ -24,12 +24,22 @@ const carousel = () => {
       image: "https://images.unsplash.com/photo-1569738713551-2958195b458a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTB8fGNvdmVyfGVufDB8fDB8fHww",
     },
     {
-    id: 4,
-    title: "UI/UX Design Simplified",
-    subtitle: "Create user-friendly interfaces with practical design tips.",
-    image: "https://img.freepik.com/premium-psd/mockup-various-devices-with-creativity-workspace-concept_23-2147957204.jpg?ga=GA1.1.374979560.1726224332&semt=ais_hybrid",
+      id: 4,
+      title: "UI/UX Design Simplified",
+      subtitle: "Create user-friendly interfaces with practical design tips.",
+      image: "https://img.freepik.com/premium-psd/mockup-various-devices-with-creativity-workspace-concept_23-2147957204.jpg?ga=GA1.1.374979560.1726224332&semt=ais_hybrid",
     },
   ];
+
+  const [loadedImages, setLoadedImages] = useState(
+    new Array(slides.length).fill(false)
+  );
+
+  const handleImageLoad = (index) => {
+    const updatedLoadedImages = [...loadedImages];
+    updatedLoadedImages[index] = true;
+    setLoadedImages(updatedLoadedImages);
+  };
 
   return (
     <div className="carousel-wrapper">
@@ -42,15 +52,28 @@ const carousel = () => {
         interval={5000}
         transitionTime={800}
       >
-        {slides.map((slide) => (
+        {slides.map((slide, index) => (
           <div className="carousel-slide" key={slide.id}>
-            <img src={slide.image} alt={slide.title} />
-            <div className="carousel-overlay">
-              <div className="carousel-text">
-                <h2>{slide.title}</h2>
-                <p>{slide.subtitle}</p>
+            {!loadedImages[index] && (
+              <div className="skeleton-loader">
+                {/* Skeleton loader (could be a simple grey box or animation) */}
+                <div className="skeleton-image"></div>
               </div>
-            </div>
+            )}
+            <img
+              src={slide.image}
+              alt={slide.title}
+              onLoad={() => handleImageLoad(index)}
+              style={{ display: loadedImages[index] ? "block" : "none" }}
+            />
+            {loadedImages[index] && (
+              <div className="carousel-overlay">
+                <div className="carousel-text">
+                  <h2>{slide.title}</h2>
+                  <p>{slide.subtitle}</p>
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </Carousel>
@@ -58,4 +81,4 @@ const carousel = () => {
   );
 };
 
-export default carousel;
+export default CarouselComponent;

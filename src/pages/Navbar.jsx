@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./navbar.css";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -11,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="logo">BLOG HUB</div>
+        <div className="logo" onClick={()=> navigate('/')}>BLOG HUB</div>
         <div className={`menu-toggle ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
           <div className="bar"></div>
           <div className="bar"></div>

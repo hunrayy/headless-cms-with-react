@@ -3,7 +3,7 @@
 
 
 import Navbar from "./Navbar"
-import Carousel from "./Carousel"
+import Carousel from "./CarouselComponent"
 import Blog from "./Blog"
 import Footer from "./Footer"
 const Home = () => {
