@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchEntries } from '../contentfulClient';
 import { Helmet } from 'react-helmet';
-
+import { useNavigate } from 'react-router-dom';
 import "./blog.css";
 const Blog = () => {
+  const navigate = useNavigate()
   const { slug } = useParams();
   const [post, setPost] = useState(null);
   const [posts, setPosts] = useState([])
@@ -29,7 +30,7 @@ const Blog = () => {
     <div>
       <Helmet>
         <title>{`${posts[0]?.fields.title} - My Blog`}</title>
-        <meta name="description" content={posts[0].fields.content} />
+        <meta name="description" content={posts[0]?.fields.content} />
       </Helmet>
       <div className="blog-container">
       <header className="blog-header">
@@ -45,10 +46,10 @@ const Blog = () => {
               <div className="blog-content">
                 <h2>{blog?.fields.title}</h2>
                 <p className="blog-meta">
-                  Category | {blog?.category}
+                  Category | {blog?.fields.category}
                 </p>
                 <p className="blog-excerpt">{blog?.fields.category}</p>
-                <button className="read-more">Read More</button>
+                <button className="read-more" onClick={()=> {navigate(`/blog/${blog.sys.id}`)}}>Read More</button>
               </div>
             </div>
           })}
