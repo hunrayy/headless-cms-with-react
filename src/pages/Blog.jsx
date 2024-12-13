@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import "./blog.css";
 const Blog = () => {
   const navigate = useNavigate()
-  const { slug } = useParams();
   const [post, setPost] = useState(null);
   const [posts, setPosts] = useState([])
   useEffect(() => {
@@ -21,7 +20,7 @@ const Blog = () => {
     };
   
     fetchPost();
-  }, [slug]);
+  }, []);
   
 
   if (!posts) return <p>Loading...</p>;
@@ -29,7 +28,7 @@ const Blog = () => {
   return (
     <div>
       <Helmet>
-        <title>{`${posts[0]?.fields.title} - My Blog`}</title>
+        <title>{`${posts[0]?.fields.title}`}</title>
         <meta name="description" content={posts[0]?.fields.content} />
       </Helmet>
       <div className="blog-container">
