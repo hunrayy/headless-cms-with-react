@@ -7,12 +7,12 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* <div className="footer-section">
+        <div className="footer-section">
           <h4>About</h4>
           <p>
             Our blog shares insights, tutorials, and the latest trends in web development, design, and technology.
           </p>
-        </div> */}
+        </div>
 
         <div className="footer-section">
           <h4>Navigation</h4>
