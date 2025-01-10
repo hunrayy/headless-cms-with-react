@@ -32,7 +32,7 @@ const Blog = () => {
         </Helmet>
       </HelmetProvider>
       <div className="blog-container">
-      {/* <header className="blog-header">
+      <header className="blog-header">
         {loading ? (
           <>
             <Skeleton height={40} width="60%" />
@@ -44,7 +44,7 @@ const Blog = () => {
             <p>Exploring innovation, trends, and insights in technology</p>
           </>
         )}
-      </header> */}
+      </header>
 
 
         <main className="blog-main">
