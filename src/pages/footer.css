@@ -63,7 +63,7 @@
   }
   
   /* Responsive Design */
-  /* @media (max-width: 768px) {
+  @media (max-width: 768px) {
     .footer-container {
       flex-direction: column;
     }
@@ -72,4 +72,7 @@
       flex: 1 1 100%;
       margin: 10px 0;
     }
-  } */
+  }
+  .test.test{
+    background-color: red;
+  }
