@@ -43,10 +43,10 @@ const SingleBlogPost = () => {
             <Helmet>
                 <title>{`${post?.fields.title}`}</title>
                 <meta name="description" content={post?.fields.content} />
+                <meta name="description" content={post?.fields.content} />
             </Helmet>
         </HelmetProvider>
         <Navbar />
-        {/* this is single blog component */}
         {isLoading ? 
             <div style={{height: "92vh", display: "flex", justifyContent: "center", alignItems: "center"}}>
                 <div class="spinner-border" role="status">
