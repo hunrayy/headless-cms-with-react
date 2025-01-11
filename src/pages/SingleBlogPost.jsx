@@ -43,7 +43,6 @@ const SingleBlogPost = () => {
             <Helmet>
                 <title>{`${post?.fields.title}`}</title>
                 <meta name="description" content={post?.fields.content} />
-                <meta name="description" content={post?.fields.content} />
             </Helmet>
         </HelmetProvider>
         <Navbar />
