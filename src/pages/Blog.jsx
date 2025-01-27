@@ -78,7 +78,6 @@ const Blog = () => {
                     >
                       Read More
                     </button>
-                    <p>hfhfhf</p>
                   </div>
                 </div>
               ))}
