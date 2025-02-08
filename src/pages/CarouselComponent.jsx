@@ -60,7 +60,6 @@ const CarouselComponent = () => {
                 <div className="skeleton-image"></div>
               </div>
             )}
-            <p>jshs</p>
             <img
               src={slide.image}
               alt={slide.title}
