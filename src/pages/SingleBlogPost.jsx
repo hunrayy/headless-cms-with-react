@@ -50,7 +50,6 @@ const SingleBlogPost = () => {
             <div style={{height: "92vh", display: "flex", justifyContent: "center", alignItems: "center"}}>
                 <div class="spinner-border" role="status">
                 </div>
-                <p>jdjdjd</p>
             </div>
         : 
             <div className="blog-container">
