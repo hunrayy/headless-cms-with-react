@@ -66,6 +66,7 @@ const CarouselComponent = () => {
               onLoad={() => handleImageLoad(index)}
               style={{ display: loadedImages[index] ? "block" : "none" }}
             />
+            pjdjdj
             {loadedImages[index] && (
               <div className="carousel-overlay">
                 <div className="carousel-text">
